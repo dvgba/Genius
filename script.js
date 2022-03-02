@@ -18,7 +18,7 @@ let shuffleOrder = () => {
     order[order.length] = colorOrder;
     clickedOrder = [];
 
-    for(let i in order) {
+    for (let i in order) {
         let elementColor = createColorElement(order[i]);
         lightColor(elementColor, Number(i) + 1);
     }
@@ -37,13 +37,13 @@ let lightColor = (element, number) => {
 
 //checa se os botoes clicados são os mesmos da ordem gerada no jogo
 let checkOrder = () => {
-    for(let i in clickedOrder) {
-        if(clickedOrder[i] != order[i]) {
+    for (let i in clickedOrder) {
+        if (clickedOrder[i] != order[i]) {
             gameOver();
             break;
         }
     }
-    if(clickedOrder.length == order.length) {
+    if (clickedOrder.length == order.length) {
         alert(`Pontuação: ${score}\nVocê acertou! Iniciando próximo nível!`);
         nextLevel();
     }
@@ -57,14 +57,14 @@ let click = (color) => {
     setTimeout(() => {
         createColorElement(color).classList.remove('selected');
         checkOrder();
-    },250);
+    }, 250);
 }
 
 //funcao que retorna a cor
 let createColorElement = (color) => {
-    if(color == 0) {
+    if (color == 0) {
         return green;
-    } else if(color == 1) {
+    } else if (color == 1) {
         return red;
     } else if (color == 2) {
         return yellow;
